@@ -15,8 +15,10 @@ export default new Vuex.Store({
     SOCKET_CreateUser (state, payload) {
       state.users.push({ username: payload })
     },
-    setRoom (state, payload) {
-      state.rooms.push(payload)
+    SOCKET_setRoom (state, payload) {
+      // console.log(payload)
+      // state.rooms.push(payload)
+      state.rooms = payload
     }
   },
   actions: {
@@ -24,8 +26,13 @@ export default new Vuex.Store({
       this._vm.$socket.emit('addUser', payload)
       router.push('/mainpage')
     },
-    createRoom (context, payload) {
-      context.commit('setRoom', payload)
+    // createRoom (context, payload) {
+    //   console.log(payload, '<<<<<<<')
+    //   context.commit('setRoom', payload)
+    // },
+    SOCKET_addRoom (context, payload) {
+      this._vm.$socket.emit('addRoom', payload)
+      // context.commit.SOCKET_setRoom(payload)
     }
   },
   modules: {
