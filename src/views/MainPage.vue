@@ -31,7 +31,7 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <RoomCard v-for="(roomCard, i) in roomsComputed" :key="i" :roomCard="roomCard" ></RoomCard>
+              <RoomCard v-for="(roomCard, i) in rooms" :key="i" :roomCard="roomCard" ></RoomCard>
             </div>
           </div>
         </div>
@@ -52,38 +52,31 @@ export default {
       room: {
         name: '',
         countPlayer: 0
-      },
-      rooms: []
+      }
     }
   },
   computed: {
     users () {
       return this.$store.state.users
     },
-    roomsComputed () {
-      this.getRooms()
-      return this.rooms
+    rooms () {
+      return this.$store.state.rooms
     }
   },
   components: {
-    ListUser, RoomCard
+    ListUser,
+    RoomCard
   },
   methods: {
     onClick () {
       this.flagCreate = !this.flagCreate
     },
     onCreate () {
-      // this.$store.dispatch('createRoom', this.room)
-      this.$store.dispatch('SOCKET_addRoom', this.room)
+      const { name, countPlayer } = this.room
+      this.$store.dispatch('SOCKET_addRoom', { name, countPlayer })
       this.flagCreate = false
-    },
-    getRooms () {
-      this.rooms = this.$store.state.rooms
-      console.log(this.$store.state.rooms)
+      this.room = { name: '', countPlayer: 0 }
     }
-  },
-  created () {
-    this.getRooms()
   }
 }
 </script>
