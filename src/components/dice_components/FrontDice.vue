@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style>
-
+  .front .dot1 { top: 85px; left: 85px; }
 </style>

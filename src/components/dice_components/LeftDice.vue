@@ -14,5 +14,8 @@ export default {
 </script>
 
 <style>
-
+  .left .dot1 { top: 45px; left: 45px; }
+  .left .dot2 { top: 45px; left: 125px; }
+  .left .dot3 { top: 125px; left: 45px; }
+  .left .dot4 { top: 125px; left: 125px; }
 </style>

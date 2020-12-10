@@ -12,5 +12,6 @@ export default {
 </script>
 
 <style>
-
+  .back .dot1 { top: 45px; left: 45px; }
+  .back .dot2 { top: 125px; left: 125px; }
 </style>
