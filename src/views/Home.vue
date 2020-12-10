@@ -2,11 +2,14 @@
   <div class="home">
     <div class="container col-md-5 col-sm-6">
       <img src="../assets/game.svg" alt="" class="img-game">
-      <form action="">
+      <form action="" @submit.prevent="onSubmit">
         <label for="" class="form-label">Username</label>
-        <input type="text" name="input-username" class="form-control" id="input-username" placeholder="input your username">
+        <input type="text" name="input-username" v-model="username" class="form-control" id="input-username" placeholder="input your username">
         <button class="btn btn-submit"> Submit </button>
       </form>
+      <div v-for="(user, i) in users" :key="i">
+        <p>Username: {{ user.username }} </p>
+      </div>
     </div>
   </div>
 </template>
@@ -16,9 +19,22 @@
 
 export default {
   name: 'Home',
-  sockets: {
-    init (payload) {
-      console.log(payload)
+  data () {
+    return {
+      username: ''
+    }
+  },
+  computed: {
+    users () {
+      return this.$store.state.users
+    }
+  },
+  methods: {
+    onSubmit () {
+      this.$store.dispatch('SOCKET_addUser', this.username)
+      // this.$socket.emit('addUser', this.username)
+      // this.users.push(this.username) // ini digunakan jika misalkan di server menggunakan socket.broadcast.emit
+      this.username = ''
     }
   }
 }
