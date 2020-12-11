@@ -10,13 +10,7 @@
         </div>
         <div class="col-8" id="main">
             <!--  Untuk player -->
-            <h1>Players {{room}} </h1>
-            <div v-for="(user, idx) in room.users" :key="idx">
-              <div class="row">
-                <h2 class="col-7"> {{ user.name }} </h2>
-                <h3 class="col-5">{{ user.score }}</h3>
-              </div>
-            </div>
+            <PlayerCard/>
         </div>
     </div>
 </div>
@@ -25,10 +19,12 @@
 
 <script>
 import Dice from '../components/TrialDice.vue'
+import PlayerCard from '../components/PlayerCard.vue'
 export default {
   name: 'Play',
   components: {
-    Dice
+    Dice,
+    PlayerCard
   },
   computed: {
     room () {
