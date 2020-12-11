@@ -9,6 +9,8 @@
           Player :
           <p v-for="(name, i) in room.users" :key="i" >{{ name }} </p>
         </div>
+        <router-link to="/play" class="btn btn-danger">Play</router-link>
+        <router-view/>
       </div>
     </div>
   </div>

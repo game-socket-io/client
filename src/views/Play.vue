@@ -10,7 +10,7 @@
         </div>
         <div class="col-2" id="main">
             <!--  Untuk player -->
-            <h1>player</h1>
+            <PlayerCard/>
         </div>
     </div>
 </div>
@@ -19,10 +19,21 @@
 
 <script>
 import Dice from '../components/TrialDice.vue'
+import PlayerCard from '../components/PlayerCard.vue'
 export default {
   name: 'Play',
   components: {
-    Dice
+    Dice,
+    PlayerCard
+  },
+  computed: {
+    room () {
+      const currentRoom = this.$store.state.room
+      currentRoom.users.forEach(user => {
+        user.score = 0
+      })
+      return currentRoom
+    }
   }
 }
 </script>
