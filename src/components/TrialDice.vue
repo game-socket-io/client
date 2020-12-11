@@ -8,6 +8,10 @@
       <TopDice />
       <BottomDice />
     </div>
+    <div class="mb-10">
+      <h3> dice outcome </h3>
+      <h2> {{outcome}} </h2>
+    </div>
   </div>
 </template>
 
@@ -23,7 +27,8 @@ export default {
   name: 'Dice',
   data () {
     return {
-      style: {}
+      style: {},
+      outcome: 0
     }
   },
   components: {
@@ -38,10 +43,12 @@ export default {
     rollDice () {
       const y = this.randomize(6, 60)
       const x = this.randomize(6, 60)
-      console.log(this.getDiceNumber(x, y))
       this.style = {
         transform: `rotateX(${x}deg) rotateY(${y}deg)`
       }
+      setTimeout(_ => {
+        this.outcome = this.getDiceNumber(x, y)
+      }, 3000)
     },
     randomize (min, max) {
       return (Math.ceil(Math.random() * (max - min)) + max) * 90
@@ -123,7 +130,7 @@ export default {
     top: 100px;
     position: absolute;
     transform-style: preserve-3d;
-    transition: transform 6s;
+    transition: transform 3s;
   }
 
   #cube:hover {
@@ -131,12 +138,12 @@ export default {
   }
 
   #cube div {
-    background: hsla(0, 85%, 50%, 0.8);
+    background: hsla(241, 85%, 50%, 0.85);
     display: block;
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid #ab1a1a;
+    border: 2px solid #ab781a;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 500%;
