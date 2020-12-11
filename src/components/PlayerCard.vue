@@ -1,15 +1,25 @@
 <template>
     <div class="card">
-        <h5 class="card-header">Player Name</h5>
+        <h5 class="card-header">{{ user.name }}</h5>
         <div class="card-body">
-            <p>Score</p>
+            <p>{{ score }}</p>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'PlayerCard'
+  name: 'PlayerCard',
+  props: ['user'],
+  computed: {
+    score () {
+      const score = this.$store.state.score
+      if (score.user === this.user.name) {
+        return score.score
+      }
+      return 0
+    }
+  }
 }
 </script>
 

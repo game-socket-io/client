@@ -10,7 +10,7 @@
         </div>
         <div class="col-8" id="main">
             <!--  Untuk player -->
-            <PlayerCard/>
+            <PlayerCard v-for="(user, idx) in room.users" :key="idx" :user="user"/>
         </div>
     </div>
 </div>
@@ -29,9 +29,11 @@ export default {
   computed: {
     room () {
       const currentRoom = this.$store.state.room
+      const users = []
       currentRoom.users.forEach(user => {
-        user.score = 0
+        users.push({ name: user, score: 0 })
       })
+      currentRoom.users = users
       return currentRoom
     }
   }
