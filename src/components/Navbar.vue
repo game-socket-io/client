@@ -3,7 +3,6 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/trial">Trial Dice</router-link> |
       <a href="#" @click.prevent="logout">Logout</a>
     </div>
     <router-view/>

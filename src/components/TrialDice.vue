@@ -12,12 +12,12 @@
 </template>
 
 <script>
-import TopDice from '../components/dice_components/TopDice'
-import RightDice from '../components/dice_components/RightDice.vue'
-import LeftDice from '../components/dice_components/LeftDice.vue'
-import FrontDice from '../components/dice_components/FrontDice.vue'
-import BottomDice from '../components/dice_components/BottomDice.vue'
-import BackDice from '../components/dice_components/BackDice.vue'
+import TopDice from './dice_components/TopDice'
+import RightDice from './dice_components/RightDice.vue'
+import LeftDice from './dice_components/LeftDice.vue'
+import FrontDice from './dice_components/FrontDice.vue'
+import BottomDice from './dice_components/BottomDice.vue'
+import BackDice from './dice_components/BackDice.vue'
 
 export default {
   name: 'Dice',
