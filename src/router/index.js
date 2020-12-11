@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import TrialDice from '../views/TrialDice.vue'
 import MainPage from '../views/MainPage.vue'
 import Play from '../views/Play.vue'
 import Lobby from '../views/Lobby.vue'
@@ -18,11 +17,6 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/trial',
-    name: 'TrialDice',
-    component: TrialDice
   },
   {
     path: '/mainpage',

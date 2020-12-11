@@ -5,6 +5,7 @@
             <div class="sticky-top">
                 <!-- Untuk dice -->
                 <h1>Dice</h1>
+                <Dice />
             </div>
         </div>
         <div class="col-2" id="main">
@@ -17,8 +18,12 @@
 </template>
 
 <script>
+import Dice from '../components/TrialDice.vue'
 export default {
-
+  name: 'Play',
+  components: {
+    Dice
+  }
 }
 </script>
 
