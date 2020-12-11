@@ -48,6 +48,9 @@ export default {
       }
       setTimeout(_ => {
         this.outcome = this.getDiceNumber(x, y)
+        const user = localStorage.getItem('admin')
+        const score = this.outcome
+        this.$store.commit('setScore', { user, score })
       }, 3000)
     },
     randomize (min, max) {

@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     users: [],
     rooms: [],
-    room: {}
+    room: {},
+    score: {}
   },
   mutations: {
     SOCKET_init (state, payload) {
@@ -24,6 +25,9 @@ export default new Vuex.Store({
     },
     SOCKET_roomDetail (state, payload) {
       state.room = payload
+    },
+    setScore (state, payload) {
+      state.score = payload
     }
   },
   actions: {
