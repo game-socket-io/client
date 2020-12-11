@@ -33,7 +33,9 @@ export default {
   computed: {
     room () {
       const currentRoom = this.$store.state.room
-      currentRoom.score = 0
+      currentRoom.users.forEach(user => {
+        user.score = 0
+      })
       return currentRoom
     }
   }
