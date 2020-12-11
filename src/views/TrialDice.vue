@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import TopDice from '../components/dice_components/TopDice.vue'
+import TopDice from '../components/dice_components/TopDice'
 import RightDice from '../components/dice_components/RightDice.vue'
 import LeftDice from '../components/dice_components/LeftDice.vue'
 import FrontDice from '../components/dice_components/FrontDice.vue'
