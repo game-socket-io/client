@@ -20,11 +20,11 @@
             <form @submit.prevent="onCreate">
               <div class="form-group">
                 <label for="" class="form-label mt-2">Room's Name</label>
-                <input type="text" v-modal="room.name" class="form-control">
+                <input type="text" v-model="room.name" class="form-control">
               </div>
               <div class="form-group">
                 <label for="" class="form-label mt-2">Max Player</label>
-                <input type="number" v-modal="room.countPlayer" class="form-control">
+                <input type="number" v-model="room.countPlayer" class="form-control">
               </div>
               <button class="btn btn-info mt-2 mb-2"> Create </button>
             </form>
@@ -52,32 +52,31 @@ export default {
       room: {
         name: '',
         countPlayer: 0
-      },
-      rooms: []
+      }
     }
   },
   computed: {
     users () {
       return this.$store.state.users
+    },
+    rooms () {
+      return this.$store.state.rooms
     }
   },
   components: {
-    ListUser, RoomCard
+    ListUser,
+    RoomCard
   },
   methods: {
     onClick () {
       this.flagCreate = !this.flagCreate
     },
     onCreate () {
-      this.$store.dispatch('createRoom', this.room)
+      const { name, countPlayer } = this.room
+      this.$store.dispatch('SOCKET_addRoom', { name, countPlayer, admin: localStorage.getItem('admin') })
       this.flagCreate = false
-    },
-    getRooms () {
-      this.rooms = this.$store.state.rooms
+      this.room = { name: '', countPlayer: 0 }
     }
-  },
-  created () {
-    this.getRooms()
   }
 }
 </script>

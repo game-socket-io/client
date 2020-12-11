@@ -36,8 +36,8 @@ export default {
   },
   methods: {
     rollDice () {
-      const y = this.randomize(10, 20)
-      const x = this.randomize(10, 20)
+      const y = this.randomize(6, 60)
+      const x = this.randomize(6, 60)
       console.log(this.getDiceNumber(x, y))
       this.style = {
         transform: `rotateX(${x}deg) rotateY(${y}deg)`
