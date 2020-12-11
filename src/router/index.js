@@ -24,7 +24,7 @@ const routes = [
     component: MainPage
   },
   {
-    path: '/lobby/:roomname',
+    path: '/lobby/:name',
     name: 'Lobby',
     component: Lobby
   },

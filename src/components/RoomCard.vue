@@ -15,11 +15,11 @@ export default {
   methods: {
     joinRoom () {
       const payload = {
-        'room-name': this.roomCard.name,
+        roomName: this.roomCard.name,
         username: localStorage.getItem('admin')
       }
-      this.$store.dispatch('joinRoom', payload)
-      this.$router.push(`/lobby/${this.roomCard.name}`)
+      this.$store.dispatch('SOCKET_joinRoom', payload)
+      // this.$router.push(`/lobby/${this.roomCard.name}`)
     }
   }
 }
