@@ -7,9 +7,9 @@
         <input type="text" name="input-username" v-model="username" class="form-control" id="input-username" placeholder="input your username">
         <button class="btn btn-submit"> Submit </button>
       </form>
-      <div v-for="(user, i) in users" :key="i">
+      <!-- <div v-for="(user, i) in users" :key="i">
         <p>Username: {{ user.username }} </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
   methods: {
     onSubmit () {
       this.$store.dispatch('SOCKET_addUser', this.username)
+      localStorage.setItem('admin', this.username)
       // this.$socket.emit('addUser', this.username)
       // this.users.push(this.username) // ini digunakan jika misalkan di server menggunakan socket.broadcast.emit
       this.username = ''

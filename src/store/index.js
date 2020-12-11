@@ -29,6 +29,9 @@ export default new Vuex.Store({
     SOCKET_addRoom (context, payload) {
       console.log(payload)
       this._vm.$socket.emit('addRoom', payload)
+    },
+    SOCKET_joinRoom (context, payload) {
+      this._vm.$socket.emit('join-room', payload)
     }
   },
   modules: {
