@@ -73,7 +73,7 @@ export default {
     },
     onCreate () {
       const { name, countPlayer } = this.room
-      this.$store.dispatch('SOCKET_addRoom', { name, countPlayer })
+      this.$store.dispatch('SOCKET_addRoom', { name, countPlayer, admin: localStorage.getItem('admin') })
       this.flagCreate = false
       this.room = { name: '', countPlayer: 0 }
     }
