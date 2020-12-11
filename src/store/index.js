@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     users: [],
-    rooms: []
+    rooms: [],
+    room: {}
   },
   mutations: {
     SOCKET_init (state, payload) {
@@ -19,6 +20,9 @@ export default new Vuex.Store({
     },
     SOCKET_setRoom (state, payload) {
       state.rooms = payload
+    },
+    SOCKET_roomDetail (state, payload) {
+      state.room = payload
     }
   },
   actions: {
@@ -32,6 +36,7 @@ export default new Vuex.Store({
     },
     SOCKET_joinRoom (context, payload) {
       this._vm.$socket.emit('join-room', payload)
+      router.push('/lobby/' + payload.roomName)
     }
   },
   modules: {
