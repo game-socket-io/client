@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Player Card'
+  name: 'PlayerCard'
 }
 </script>
 

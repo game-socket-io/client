@@ -11,9 +11,10 @@ export default new Vuex.Store({
   },
   mutations: {
     SOCKET_init (state, payload) {
-      const { users, rooms } = payload
+      const { users, rooms, room } = payload
       state.users = users
       state.rooms = rooms
+      state.room = room
     },
     SOCKET_CreateUser (state, payload) {
       state.users.push({ username: payload })
@@ -36,7 +37,11 @@ export default new Vuex.Store({
     },
     SOCKET_joinRoom (context, payload) {
       this._vm.$socket.emit('join-room', payload)
-      router.push('/lobby/' + payload.roomName)
+      // router.push('/lobby/' + payload.name)
+    },
+    SOCKET_getRoom (context, payload) {
+      context.commit('SOCKET_roomDetail', payload)
+      router.push('/lobby/' + payload.name)
     }
   },
   modules: {
